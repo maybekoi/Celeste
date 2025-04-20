@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: Celeste.DashCollision
 // Assembly: Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
@@ -6,6 +6,8 @@
 
 using Microsoft.Xna.Framework;
 
-namespace Celeste;
+namespace Celeste
+{
 
-public delegate DashCollisionResults DashCollision(Player player, Vector2 direction);
+    public delegate DashCollisionResults DashCollision(Player player, Vector2 direction);
+}

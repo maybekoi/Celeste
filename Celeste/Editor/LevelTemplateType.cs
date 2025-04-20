@@ -4,10 +4,12 @@
 // MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Celeste\Celeste.exe
 
-namespace Celeste.Editor;
-
-public enum LevelTemplateType
+namespace Celeste.Editor
 {
-  Level,
-  Filler,
+
+    public enum LevelTemplateType
+    {
+        Level,
+        Filler,
+    }
 }

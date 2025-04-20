@@ -1,105 +1,156 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Monocle.VirtualMap`1
-// Assembly: Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
-// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Celeste\Celeste.exe
+﻿using System;
 
-namespace Monocle;
-
-public class VirtualMap<T>
+namespace Monocle
 {
-  public const int SegmentSize = 50;
-  public readonly int Columns;
-  public readonly int Rows;
-  public readonly int SegmentColumns;
-  public readonly int SegmentRows;
-  public readonly T EmptyValue;
-  private T[,][,] segments;
-
-  public VirtualMap(int columns, int rows, T emptyValue = null)
-  {
-    this.Columns = columns;
-    this.Rows = rows;
-    this.SegmentColumns = columns / 50 + 1;
-    this.SegmentRows = rows / 50 + 1;
-    this.segments = new T[this.SegmentColumns, this.SegmentRows][,];
-    this.EmptyValue = emptyValue;
-  }
-
-  public VirtualMap(T[,] map, T emptyValue = null)
-    : this(map.GetLength(0), map.GetLength(1), emptyValue)
-  {
-    for (int x = 0; x < this.Columns; ++x)
+    // Token: 0x0200013E RID: 318
+    public class VirtualMap<T>
     {
-      for (int y = 0; y < this.Rows; ++y)
-        this[x, y] = map[x, y];
-    }
-  }
-
-  public bool AnyInSegmentAtTile(int x, int y) => this.segments[x / 50, y / 50] != null;
-
-  public bool AnyInSegment(int segmentX, int segmentY) => this.segments[segmentX, segmentY] != null;
-
-  public T InSegment(int segmentX, int segmentY, int x, int y)
-  {
-    return this.segments[segmentX, segmentY][x, y];
-  }
-
-  public T[,] GetSegment(int segmentX, int segmentY) => this.segments[segmentX, segmentY];
-
-  public T SafeCheck(int x, int y)
-  {
-    return x >= 0 && y >= 0 && x < this.Columns && y < this.Rows ? this[x, y] : this.EmptyValue;
-  }
-
-  public T this[int x, int y]
-  {
-    get
-    {
-      int index1 = x / 50;
-      int index2 = y / 50;
-      T[,] segment = this.segments[index1, index2];
-      return segment == null ? this.EmptyValue : segment[x - index1 * 50, y - index2 * 50];
-    }
-    set
-    {
-      int index1 = x / 50;
-      int index2 = y / 50;
-      if (this.segments[index1, index2] == null)
-      {
-        this.segments[index1, index2] = new T[50, 50];
-        if ((object) this.EmptyValue != null && !this.EmptyValue.Equals((object) default (T)))
+        // Token: 0x06000B8B RID: 2955 RVA: 0x00020F70 File Offset: 0x0001F170
+        public VirtualMap(int columns, int rows, T emptyValue = default(T))
         {
-          for (int index3 = 0; index3 < 50; ++index3)
-          {
-            for (int index4 = 0; index4 < 50; ++index4)
-              this.segments[index1, index2][index3, index4] = this.EmptyValue;
-          }
+            this.Columns = columns;
+            this.Rows = rows;
+            this.SegmentColumns = columns / 50 + 1;
+            this.SegmentRows = rows / 50 + 1;
+            this.segments = new T[this.SegmentColumns, this.SegmentRows][,];
+            this.EmptyValue = emptyValue;
         }
-      }
-      this.segments[index1, index2][x - index1 * 50, y - index2 * 50] = value;
-    }
-  }
 
-  public T[,] ToArray()
-  {
-    T[,] array = new T[this.Columns, this.Rows];
-    for (int x = 0; x < this.Columns; ++x)
-    {
-      for (int y = 0; y < this.Rows; ++y)
-        array[x, y] = this[x, y];
-    }
-    return array;
-  }
+        // Token: 0x06000B8C RID: 2956 RVA: 0x00020FC8 File Offset: 0x0001F1C8
+        public VirtualMap(T[,] map, T emptyValue = default(T)) : this(map.GetLength(0), map.GetLength(1), emptyValue)
+        {
+            for (int i = 0; i < this.Columns; i++)
+            {
+                for (int j = 0; j < this.Rows; j++)
+                {
+                    this[i, j] = map[i, j];
+                }
+            }
+        }
 
-  public VirtualMap<T> Clone()
-  {
-    VirtualMap<T> virtualMap = new VirtualMap<T>(this.Columns, this.Rows, this.EmptyValue);
-    for (int x = 0; x < this.Columns; ++x)
-    {
-      for (int y = 0; y < this.Rows; ++y)
-        virtualMap[x, y] = this[x, y];
+        // Token: 0x06000B8D RID: 2957 RVA: 0x0002101C File Offset: 0x0001F21C
+        public bool AnyInSegmentAtTile(int x, int y)
+        {
+            int num = x / 50;
+            int num2 = y / 50;
+            return this.segments[num, num2] != null;
+        }
+
+        // Token: 0x06000B8E RID: 2958 RVA: 0x00021043 File Offset: 0x0001F243
+        public bool AnyInSegment(int segmentX, int segmentY)
+        {
+            return this.segments[segmentX, segmentY] != null;
+        }
+
+        // Token: 0x06000B8F RID: 2959 RVA: 0x00021055 File Offset: 0x0001F255
+        public T InSegment(int segmentX, int segmentY, int x, int y)
+        {
+            return this.segments[segmentX, segmentY][x, y];
+        }
+
+        // Token: 0x06000B90 RID: 2960 RVA: 0x0002106C File Offset: 0x0001F26C
+        public T[,] GetSegment(int segmentX, int segmentY)
+        {
+            return this.segments[segmentX, segmentY];
+        }
+
+        // Token: 0x06000B91 RID: 2961 RVA: 0x0002107B File Offset: 0x0001F27B
+        public T SafeCheck(int x, int y)
+        {
+            if (x >= 0 && y >= 0 && x < this.Columns && y < this.Rows)
+            {
+                return this[x, y];
+            }
+            return this.EmptyValue;
+        }
+
+        // Token: 0x17000109 RID: 265
+        public T this[int x, int y]
+        {
+            get
+            {
+                int num = x / 50;
+                int num2 = y / 50;
+                T[,] array = this.segments[num, num2];
+                if (array == null)
+                {
+                    return this.EmptyValue;
+                }
+                return array[x - num * 50, y - num2 * 50];
+            }
+            set
+            {
+                int num = x / 50;
+                int num2 = y / 50;
+                if (this.segments[num, num2] == null)
+                {
+                    this.segments[num, num2] = new T[50, 50];
+                    if (this.EmptyValue != null)
+                    {
+                        T emptyValue = this.EmptyValue;
+                        if (!emptyValue.Equals(default(T)))
+                        {
+                            for (int i = 0; i < 50; i++)
+                            {
+                                for (int j = 0; j < 50; j++)
+                                {
+                                    this.segments[num, num2][i, j] = this.EmptyValue;
+                                }
+                            }
+                        }
+                    }
+                }
+                this.segments[num, num2][x - num * 50, y - num2 * 50] = value;
+            }
+        }
+
+        // Token: 0x06000B94 RID: 2964 RVA: 0x000211BC File Offset: 0x0001F3BC
+        public T[,] ToArray()
+        {
+            T[,] array = new T[this.Columns, this.Rows];
+            for (int i = 0; i < this.Columns; i++)
+            {
+                for (int j = 0; j < this.Rows; j++)
+                {
+                    array[i, j] = this[i, j];
+                }
+            }
+            return array;
+        }
+
+        // Token: 0x06000B95 RID: 2965 RVA: 0x00021210 File Offset: 0x0001F410
+        public VirtualMap<T> Clone()
+        {
+            VirtualMap<T> virtualMap = new VirtualMap<T>(this.Columns, this.Rows, this.EmptyValue);
+            for (int i = 0; i < this.Columns; i++)
+            {
+                for (int j = 0; j < this.Rows; j++)
+                {
+                    virtualMap[i, j] = this[i, j];
+                }
+            }
+            return virtualMap;
+        }
+
+        // Token: 0x040006D6 RID: 1750
+        public const int SegmentSize = 50;
+
+        // Token: 0x040006D7 RID: 1751
+        public readonly int Columns;
+
+        // Token: 0x040006D8 RID: 1752
+        public readonly int Rows;
+
+        // Token: 0x040006D9 RID: 1753
+        public readonly int SegmentColumns;
+
+        // Token: 0x040006DA RID: 1754
+        public readonly int SegmentRows;
+
+        // Token: 0x040006DB RID: 1755
+        public readonly T EmptyValue;
+
+        // Token: 0x040006DC RID: 1756
+        private T[,][,] segments;
     }
-    return virtualMap;
-  }
 }

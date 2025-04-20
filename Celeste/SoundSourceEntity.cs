@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: Celeste.SoundSourceEntity
 // Assembly: Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
@@ -7,26 +7,28 @@
 using Microsoft.Xna.Framework;
 using Monocle;
 
-namespace Celeste;
-
-public class SoundSourceEntity : Entity
+namespace Celeste
 {
-  private string eventName;
-  private SoundSource sfx;
 
-  public SoundSourceEntity(EntityData data, Vector2 offset)
-    : base(data.Position + offset)
-  {
-    this.Tag = (int) Tags.TransitionUpdate;
-    this.Add((Component) (this.sfx = new SoundSource()));
-    this.eventName = SFX.EventnameByHandle(data.Attr("sound"));
-    this.Visible = true;
-    this.Depth = -8500;
-  }
+    public class SoundSourceEntity : Entity
+    {
+      private string eventName;
+      private SoundSource sfx;
 
-  public override void Awake(Scene scene)
-  {
-    base.Awake(scene);
-    this.sfx.Play(this.eventName);
-  }
+      public SoundSourceEntity(EntityData data, Vector2 offset)
+        : base(data.Position + offset)
+      {
+        this.Tag = (int) Tags.TransitionUpdate;
+        this.Add((Component) (this.sfx = new SoundSource()));
+        this.eventName = SFX.EventnameByHandle(data.Attr("sound"));
+        this.Visible = true;
+        this.Depth = -8500;
+      }
+
+      public override void Awake(Scene scene)
+      {
+        base.Awake(scene);
+        this.sfx.Play(this.eventName);
+      }
+    }
 }

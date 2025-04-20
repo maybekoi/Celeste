@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: Celeste.CustomBloom
 // Assembly: Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
@@ -7,16 +7,18 @@
 using Monocle;
 using System;
 
-namespace Celeste;
-
-[Tracked(false)]
-public class CustomBloom : Component
+namespace Celeste
 {
-  public Action OnRenderBloom;
 
-  public CustomBloom(Action onRenderBloom)
-    : base(false, true)
-  {
-    this.OnRenderBloom = onRenderBloom;
-  }
+    [Tracked(false)]
+    public class CustomBloom : Component
+    {
+      public Action OnRenderBloom;
+
+      public CustomBloom(Action onRenderBloom)
+        : base(false, true)
+      {
+        this.OnRenderBloom = onRenderBloom;
+      }
+    }
 }

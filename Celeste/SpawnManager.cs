@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: Celeste.SpawnManager
 // Assembly: Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
@@ -8,28 +8,30 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Celeste;
-
-public static class SpawnManager
+namespace Celeste
 {
-  public static Dictionary<string, Spawn> SpawnActions = new Dictionary<string, Spawn>((IEqualityComparer<string>) StringComparer.InvariantCultureIgnoreCase);
 
-  public static void Init()
-  {
-    foreach (Type type in Assembly.GetCallingAssembly().GetTypes())
+    public static class SpawnManager
     {
-      if (CustomAttributeExtensions.GetCustomAttribute((MemberInfo) type, typeof (SpawnableAttribute)) != null)
+      public static Dictionary<string, Spawn> SpawnActions = new Dictionary<string, Spawn>((IEqualityComparer<string>) StringComparer.InvariantCultureIgnoreCase);
+
+      public static void Init()
       {
-        foreach (MethodInfo method in type.GetMethods())
+        foreach (Type type in Assembly.GetCallingAssembly().GetTypes())
         {
-          SpawnerAttribute customAttribute = CustomAttributeExtensions.GetCustomAttribute((MemberInfo) method, typeof (SpawnerAttribute)) as SpawnerAttribute;
-          if (method.IsStatic && customAttribute != null)
+          if (CustomAttributeExtensions.GetCustomAttribute((MemberInfo) type, typeof (SpawnableAttribute)) != null)
           {
-            string key = customAttribute.Name ?? type.Name;
-            SpawnManager.SpawnActions.Add(key, (Spawn) method.CreateDelegate(typeof (Spawn)));
+            foreach (MethodInfo method in type.GetMethods())
+            {
+              SpawnerAttribute customAttribute = CustomAttributeExtensions.GetCustomAttribute((MemberInfo) method, typeof (SpawnerAttribute)) as SpawnerAttribute;
+              if (method.IsStatic && customAttribute != null)
+              {
+                string key = customAttribute.Name ?? type.Name;
+                SpawnManager.SpawnActions.Add(key, (Spawn) method.CreateDelegate(typeof (Spawn)));
+              }
+            }
           }
         }
       }
     }
-  }
 }

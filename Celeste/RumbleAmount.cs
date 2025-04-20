@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: Celeste.RumbleAmount
 // Assembly: Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
@@ -6,11 +6,13 @@
 
 using System.Xml.Serialization;
 
-namespace Celeste;
-
-public enum RumbleAmount
+namespace Celeste
 {
-  [XmlEnum("false")] Off,
-  Half,
-  [XmlEnum("true")] On,
+
+    public enum RumbleAmount
+    {
+      [XmlEnum("false")] Off,
+      Half,
+      [XmlEnum("true")] On,
+    }
 }
