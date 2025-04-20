@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: FMOD.PLUGINLIST
 // Assembly: Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
@@ -6,10 +6,12 @@
 
 using System;
 
-namespace FMOD;
-
-public struct PLUGINLIST
+namespace FMOD
 {
-  private PLUGINTYPE type;
-  private IntPtr description;
+
+    public struct PLUGINLIST
+    {
+      private PLUGINTYPE type;
+      private IntPtr description;
+    }
 }
