@@ -1,81 +1,83 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: Monocle.Component
 // Assembly: Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Celeste\Celeste.exe
 
-namespace Monocle;
-
-public class Component
+namespace Monocle
 {
-  public bool Active;
-  public bool Visible;
 
-  public Entity Entity { get; private set; }
+    public class Component
+    {
+      public bool Active;
+      public bool Visible;
 
-  public Component(bool active, bool visible)
-  {
-    this.Active = active;
-    this.Visible = visible;
-  }
+      public Entity Entity { get; private set; }
 
-  public virtual void Added(Entity entity)
-  {
-    this.Entity = entity;
-    if (this.Scene == null)
-      return;
-    this.Scene.Tracker.ComponentAdded(this);
-  }
+      public Component(bool active, bool visible)
+      {
+        this.Active = active;
+        this.Visible = visible;
+      }
 
-  public virtual void Removed(Entity entity)
-  {
-    if (this.Scene != null)
-      this.Scene.Tracker.ComponentRemoved(this);
-    this.Entity = (Entity) null;
-  }
+      public virtual void Added(Entity entity)
+      {
+        this.Entity = entity;
+        if (this.Scene == null)
+          return;
+        this.Scene.Tracker.ComponentAdded(this);
+      }
 
-  public virtual void EntityAdded(Scene scene) => scene.Tracker.ComponentAdded(this);
+      public virtual void Removed(Entity entity)
+      {
+        if (this.Scene != null)
+          this.Scene.Tracker.ComponentRemoved(this);
+        this.Entity = (Entity) null;
+      }
 
-  public virtual void EntityRemoved(Scene scene) => scene.Tracker.ComponentRemoved(this);
+      public virtual void EntityAdded(Scene scene) => scene.Tracker.ComponentAdded(this);
 
-  public virtual void SceneEnd(Scene scene)
-  {
-  }
+      public virtual void EntityRemoved(Scene scene) => scene.Tracker.ComponentRemoved(this);
 
-  public virtual void EntityAwake()
-  {
-  }
+      public virtual void SceneEnd(Scene scene)
+      {
+      }
 
-  public virtual void Update()
-  {
-  }
+      public virtual void EntityAwake()
+      {
+      }
 
-  public virtual void Render()
-  {
-  }
+      public virtual void Update()
+      {
+      }
 
-  public virtual void DebugRender(Camera camera)
-  {
-  }
+      public virtual void Render()
+      {
+      }
 
-  public virtual void HandleGraphicsReset()
-  {
-  }
+      public virtual void DebugRender(Camera camera)
+      {
+      }
 
-  public virtual void HandleGraphicsCreate()
-  {
-  }
+      public virtual void HandleGraphicsReset()
+      {
+      }
 
-  public void RemoveSelf()
-  {
-    if (this.Entity == null)
-      return;
-    this.Entity.Remove(this);
-  }
+      public virtual void HandleGraphicsCreate()
+      {
+      }
 
-  public T SceneAs<T>() where T : Scene => this.Scene as T;
+      public void RemoveSelf()
+      {
+        if (this.Entity == null)
+          return;
+        this.Entity.Remove(this);
+      }
 
-  public T EntityAs<T>() where T : Entity => this.Entity as T;
+      public T SceneAs<T>() where T : Scene => this.Scene as T;
 
-  public Scene Scene => this.Entity == null ? (Scene) null : this.Entity.Scene;
+      public T EntityAs<T>() where T : Entity => this.Entity as T;
+
+      public Scene Scene => this.Entity == null ? (Scene) null : this.Entity.Scene;
+    }
 }

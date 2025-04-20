@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: Monocle.MethodHandle`1
 // Assembly: Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
@@ -6,16 +6,18 @@
 
 using System.Reflection;
 
-namespace Monocle;
-
-public class MethodHandle<T> where T : Entity
+namespace Monocle
 {
-  private MethodInfo info;
 
-  public MethodHandle(string methodName)
-  {
-    this.info = typeof (T).GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic);
-  }
+    public class MethodHandle<T> where T : Entity
+    {
+      private MethodInfo info;
 
-  public void Call(T instance) => this.info.Invoke((object) instance, (object[]) null);
+      public MethodHandle(string methodName)
+      {
+        this.info = typeof (T).GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic);
+      }
+
+      public void Call(T instance) => this.info.Invoke((object) instance, (object[]) null);
+    }
 }
