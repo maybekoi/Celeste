@@ -13,7 +13,6 @@ using System.IO;
 using System.Reflection;
 using System.Runtime;
 
-#nullable disable
 namespace Monocle;
 
 public class Engine : Game

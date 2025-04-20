@@ -9,7 +9,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 
-#nullable disable
 namespace Monocle;
 
 public class VirtualTexture : VirtualAsset

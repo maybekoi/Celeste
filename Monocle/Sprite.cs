@@ -10,7 +10,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-#nullable disable
 namespace Monocle;
 
 public class Sprite : Image

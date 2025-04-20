@@ -6,7 +6,6 @@
 
 using System.Xml;
 
-#nullable disable
 namespace Monocle;
 
 public class AutotileData

@@ -6,7 +6,6 @@
 
 using Microsoft.Xna.Framework;
 
-#nullable disable
 namespace Monocle;
 
 public struct SimpleCurve(Vector2 begin, Vector2 end, Vector2 control)

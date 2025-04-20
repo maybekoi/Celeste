@@ -9,7 +9,6 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace Monocle;
 
 public static class MInput

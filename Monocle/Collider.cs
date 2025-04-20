@@ -7,7 +7,6 @@
 using Microsoft.Xna.Framework;
 using System;
 
-#nullable disable
 namespace Monocle;
 
 public abstract class Collider

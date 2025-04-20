@@ -7,7 +7,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
-#nullable disable
 namespace Monocle;
 
 public class NumberText : GraphicsComponent

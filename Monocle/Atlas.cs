@@ -11,7 +11,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 
-#nullable disable
 namespace Monocle;
 
 public class Atlas

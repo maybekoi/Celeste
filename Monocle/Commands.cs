@@ -12,7 +12,6 @@ using System.Globalization;
 using System.Reflection;
 using System.Text;
 
-#nullable disable
 namespace Monocle;
 
 public class Commands

@@ -7,7 +7,6 @@
 using System;
 using System.Collections;
 
-#nullable disable
 namespace Monocle;
 
 public class StateMachine : Component

@@ -18,7 +18,6 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
-#nullable disable
 namespace Monocle;
 
 public static class Calc

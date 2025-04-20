@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Xml;
 
-#nullable disable
 namespace Monocle;
 
 public class SpriteBank

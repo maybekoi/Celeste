@@ -7,7 +7,6 @@
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace Monocle;
 
 public class CheatListener : Entity

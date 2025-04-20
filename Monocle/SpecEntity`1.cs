@@ -6,7 +6,6 @@
 
 using Microsoft.Xna.Framework;
 
-#nullable disable
 namespace Monocle;
 
 public class SpecEntity<T> : Entity where T : Scene

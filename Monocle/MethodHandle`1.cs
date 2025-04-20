@@ -6,7 +6,6 @@
 
 using System.Reflection;
 
-#nullable disable
 namespace Monocle;
 
 public class MethodHandle<T> where T : Entity

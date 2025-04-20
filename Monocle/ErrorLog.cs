@@ -9,7 +9,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-#nullable disable
 namespace Monocle;
 
 public static class ErrorLog

@@ -9,7 +9,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace Monocle;
 
 public class EntityList : IEnumerable<Entity>, IEnumerable

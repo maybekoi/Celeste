@@ -6,7 +6,6 @@
 
 using Microsoft.Xna.Framework.Input;
 
-#nullable disable
 namespace Monocle;
 
 public class VirtualButton : VirtualInput

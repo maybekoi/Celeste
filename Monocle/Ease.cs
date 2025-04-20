@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace Monocle;
 
 public static class Ease

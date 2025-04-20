@@ -6,7 +6,6 @@
 
 using Microsoft.Xna.Framework.Graphics;
 
-#nullable disable
 namespace Monocle;
 
 public class SingleTagRenderer : Renderer
