@@ -11,7 +11,6 @@ using System;
 using System.Collections;
 using System.IO;
 
-#nullable disable
 namespace Celeste;
 
 public class CS03_Memo : CutsceneEntity

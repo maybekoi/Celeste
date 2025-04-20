@@ -7,7 +7,6 @@
 using Microsoft.Xna.Framework;
 using Monocle;
 
-#nullable disable
 namespace Celeste;
 
 public class WindAttackTrigger(EntityData data, Vector2 offset) : Trigger(data, offset)

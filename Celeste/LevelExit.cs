@@ -11,7 +11,6 @@ using System.Collections;
 using System.IO;
 using System.Xml;
 
-#nullable disable
 namespace Celeste;
 
 public class LevelExit : Scene

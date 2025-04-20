@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-#nullable disable
 namespace Celeste.Pico8;
 
 public class Emulator : Scene

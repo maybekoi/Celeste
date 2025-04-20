@@ -7,7 +7,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Monocle;
 
-#nullable disable
 namespace Celeste;
 
 public static class ColorGrade

@@ -7,7 +7,6 @@
 using Monocle;
 using System.Collections;
 
-#nullable disable
 namespace Celeste;
 
 public class CS03_Guestbook : CutsceneEntity

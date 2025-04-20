@@ -8,7 +8,6 @@ using FMOD.Studio;
 using Microsoft.Xna.Framework;
 using Monocle;
 
-#nullable disable
 namespace Celeste;
 
 [Tracked(false)]

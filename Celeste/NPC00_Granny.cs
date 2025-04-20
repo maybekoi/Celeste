@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework;
 using Monocle;
 using System;
 
-#nullable disable
 namespace Celeste;
 
 public class NPC00_Granny : NPC

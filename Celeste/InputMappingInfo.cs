@@ -9,7 +9,6 @@ using Microsoft.Xna.Framework.Input;
 using Monocle;
 using System.Collections.Generic;
 
-#nullable disable
 namespace Celeste;
 
 public class InputMappingInfo : TextMenu.Item

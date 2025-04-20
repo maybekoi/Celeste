@@ -7,7 +7,6 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-#nullable disable
 namespace Celeste;
 
 public static class SFX

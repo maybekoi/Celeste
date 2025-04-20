@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 
-#nullable disable
 namespace Celeste;
 
 public class WaveDashPresentation : Entity

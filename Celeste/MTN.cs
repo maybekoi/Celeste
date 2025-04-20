@@ -9,7 +9,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 
-#nullable disable
 namespace Celeste;
 
 public static class MTN

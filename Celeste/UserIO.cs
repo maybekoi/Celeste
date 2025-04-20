@@ -10,7 +10,6 @@ using System.Collections;
 using System.IO;
 using System.Xml.Serialization;
 
-#nullable disable
 namespace Celeste;
 
 public static class UserIO

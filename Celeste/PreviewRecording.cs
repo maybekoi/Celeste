@@ -12,7 +12,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-#nullable disable
 namespace Celeste;
 
 public class PreviewRecording : Scene

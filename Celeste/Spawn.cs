@@ -6,7 +6,6 @@
 
 using Microsoft.Xna.Framework;
 
-#nullable disable
 namespace Celeste;
 
 public delegate void Spawn(Level level, EntityData data, Vector2 offset, EntityID gid);

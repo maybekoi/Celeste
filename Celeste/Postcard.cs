@@ -9,7 +9,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Monocle;
 using System.Collections;
 
-#nullable disable
 namespace Celeste;
 
 public class Postcard : Entity

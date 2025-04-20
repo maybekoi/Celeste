@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace Celeste;
 
 public class SpawnableAttribute : Attribute

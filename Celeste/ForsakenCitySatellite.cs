@@ -11,7 +11,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace Celeste;
 
 public class ForsakenCitySatellite : Entity

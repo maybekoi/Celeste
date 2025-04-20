@@ -10,7 +10,6 @@ using Monocle;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace Celeste;
 
 public class DisplacementRenderer : Monocle.Renderer

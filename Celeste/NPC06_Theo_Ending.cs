@@ -7,7 +7,6 @@
 using Microsoft.Xna.Framework;
 using Monocle;
 
-#nullable disable
 namespace Celeste;
 
 public class NPC06_Theo_Ending : NPC

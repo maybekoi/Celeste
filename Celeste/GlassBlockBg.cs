@@ -10,7 +10,6 @@ using Monocle;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace Celeste;
 
 public class GlassBlockBg : Entity

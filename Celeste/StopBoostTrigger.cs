@@ -6,7 +6,6 @@
 
 using Microsoft.Xna.Framework;
 
-#nullable disable
 namespace Celeste;
 
 public class StopBoostTrigger(EntityData data, Vector2 offset) : Trigger(data, offset)

@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Monocle;
 using System.Collections.Generic;
 
-#nullable disable
 namespace Celeste;
 
 public class ParticleRenderer : Monocle.Renderer

@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-#nullable disable
 namespace Celeste;
 
 public class LevelLoader : Scene

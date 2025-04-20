@@ -9,7 +9,6 @@ using Monocle;
 using System;
 using System.Collections;
 
-#nullable disable
 namespace Celeste;
 
 public class NPC09_Granny_Outside : NPC

@@ -9,7 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-#nullable disable
 namespace Celeste;
 
 public class LevelData

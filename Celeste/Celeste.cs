@@ -13,7 +13,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 
-#nullable disable
 namespace Celeste;
 
 public class Celeste : Engine

@@ -10,7 +10,6 @@ using System;
 using System.Collections;
 using System.Threading;
 
-#nullable disable
 namespace Celeste;
 
 public class OverworldLoader : Scene

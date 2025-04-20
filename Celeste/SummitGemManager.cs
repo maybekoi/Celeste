@@ -9,7 +9,6 @@ using Monocle;
 using System.Collections;
 using System.Collections.Generic;
 
-#nullable disable
 namespace Celeste;
 
 public class SummitGemManager : Entity

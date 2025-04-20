@@ -7,7 +7,6 @@
 using Monocle;
 using System.IO;
 
-#nullable disable
 namespace Celeste;
 
 public static class OVR

@@ -7,7 +7,6 @@
 using Monocle;
 using System;
 
-#nullable disable
 namespace Celeste;
 
 [Serializable]

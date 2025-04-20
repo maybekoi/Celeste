@@ -8,7 +8,6 @@ using FMOD.Studio;
 using Monocle;
 using System;
 
-#nullable disable
 namespace Celeste;
 
 public static class MenuOptions

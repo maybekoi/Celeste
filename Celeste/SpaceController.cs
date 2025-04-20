@@ -6,7 +6,6 @@
 
 using Monocle;
 
-#nullable disable
 namespace Celeste;
 
 public class SpaceController : Entity

@@ -12,7 +12,6 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Xml;
 
-#nullable disable
 namespace Celeste;
 
 public class FancyText

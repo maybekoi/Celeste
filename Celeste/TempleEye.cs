@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework;
 using Monocle;
 using System;
 
-#nullable disable
 namespace Celeste;
 
 public class TempleEye(EntityData data, Vector2 offset) : Entity(data.Position + offset)

@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Xml;
 
-#nullable disable
 namespace Celeste;
 
 public class PlayerSprite : Sprite

@@ -10,7 +10,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-#nullable disable
 namespace Celeste;
 
 public class NPC03_Oshiro_Cluttter : NPC

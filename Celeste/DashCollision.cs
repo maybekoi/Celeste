@@ -6,7 +6,6 @@
 
 using Microsoft.Xna.Framework;
 
-#nullable disable
 namespace Celeste;
 
 public delegate DashCollisionResults DashCollision(Player player, Vector2 direction);

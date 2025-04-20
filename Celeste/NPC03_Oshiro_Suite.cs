@@ -9,7 +9,6 @@ using Monocle;
 using System;
 using System.Collections;
 
-#nullable disable
 namespace Celeste;
 
 public class NPC03_Oshiro_Suite : NPC

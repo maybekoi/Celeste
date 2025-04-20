@@ -7,7 +7,6 @@
 using System.Collections.Generic;
 using System.Text;
 
-#nullable disable
 namespace Celeste;
 
 public static class RunLengthEncoding

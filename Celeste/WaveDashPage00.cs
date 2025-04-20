@@ -10,7 +10,6 @@ using System;
 using System.Collections;
 using System.Globalization;
 
-#nullable disable
 namespace Celeste;
 
 public class WaveDashPage00 : WaveDashPage

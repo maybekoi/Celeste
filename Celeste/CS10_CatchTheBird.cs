@@ -10,7 +10,6 @@ using Monocle;
 using System;
 using System.Collections;
 
-#nullable disable
 namespace Celeste;
 
 public class CS10_CatchTheBird : CutsceneEntity

@@ -15,7 +15,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
-#nullable disable
 namespace Celeste;
 
 public static class Commands

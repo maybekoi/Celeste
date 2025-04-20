@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
-#nullable disable
 namespace Celeste;
 
 public class ObjModel : IDisposable

@@ -10,7 +10,6 @@ using Monocle;
 using System;
 using System.Xml;
 
-#nullable disable
 namespace Celeste;
 
 public class AreaComplete : Scene

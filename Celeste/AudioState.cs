@@ -7,7 +7,6 @@
 using FMOD.Studio;
 using System;
 
-#nullable disable
 namespace Celeste;
 
 [Serializable]

@@ -10,7 +10,6 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 
-#nullable disable
 namespace Celeste;
 
 public class BadelineBoost : Entity

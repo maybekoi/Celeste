@@ -7,7 +7,6 @@
 using Monocle;
 using System.Collections.Generic;
 
-#nullable disable
 namespace Celeste;
 
 public static class GameplayBuffers

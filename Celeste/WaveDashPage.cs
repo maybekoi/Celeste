@@ -7,7 +7,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections;
 
-#nullable disable
 namespace Celeste;
 
 public abstract class WaveDashPage

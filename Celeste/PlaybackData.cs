@@ -9,7 +9,6 @@ using Monocle;
 using System.Collections.Generic;
 using System.IO;
 
-#nullable disable
 namespace Celeste;
 
 public static class PlaybackData

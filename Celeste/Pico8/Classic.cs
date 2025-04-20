@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace Celeste.Pico8;
 
 public class Classic

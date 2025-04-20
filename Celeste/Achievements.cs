@@ -6,7 +6,6 @@
 
 using Steamworks;
 
-#nullable disable
 namespace Celeste;
 
 public static class Achievements

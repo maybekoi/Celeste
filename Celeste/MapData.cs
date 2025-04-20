@@ -14,7 +14,6 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-#nullable disable
 namespace Celeste;
 
 public class MapData

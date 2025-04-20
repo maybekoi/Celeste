@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-#nullable disable
 namespace Celeste;
 
 public class CS10_Ending : CutsceneEntity

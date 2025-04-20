@@ -10,7 +10,6 @@ using System;
 using System.Xml;
 using System.Xml.Serialization;
 
-#nullable disable
 namespace Celeste;
 
 [Serializable]

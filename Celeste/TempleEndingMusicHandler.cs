@@ -8,7 +8,6 @@ using Monocle;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-#nullable disable
 namespace Celeste;
 
 public class TempleEndingMusicHandler : Entity

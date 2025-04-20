@@ -10,7 +10,6 @@ using Microsoft.Xna.Framework.Input;
 using Monocle;
 using System;
 
-#nullable disable
 namespace Celeste;
 
 public class MountainRenderer : Monocle.Renderer

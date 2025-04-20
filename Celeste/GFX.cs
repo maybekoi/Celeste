@@ -12,7 +12,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Xml;
 
-#nullable disable
 namespace Celeste;
 
 public static class GFX

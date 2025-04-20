@@ -6,7 +6,6 @@
 
 using System.Xml.Serialization;
 
-#nullable disable
 namespace Celeste;
 
 public enum RumbleAmount

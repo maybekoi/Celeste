@@ -10,7 +10,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Monocle;
 using System;
 
-#nullable disable
 namespace Celeste;
 
 public class SpotlightWipe : ScreenWipe
