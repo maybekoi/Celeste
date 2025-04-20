@@ -9,19 +9,23 @@ using Monocle;
 
 namespace Celeste
 {
-
-    [Tracked(false)]
-    public class NegaBlock(Vector2 position, float width, float height) : Solid(position, width, height, false)
+    [Tracked]
+    public class NegaBlock : Solid
     {
-      public NegaBlock(EntityData data, Vector2 offset)
-        : this(data.Position + offset, (float) data.Width, (float) data.Height)
-      {
-      }
+        public NegaBlock(Vector2 position, float width, float height)
+            : base(position, width, height, false)
+        {
+        }
 
-      public override void Render()
-      {
-        base.Render();
-        Draw.Rect(this.Collider, Color.Red);
-      }
+        public NegaBlock(EntityData data, Vector2 offset)
+            : this(data.Position + offset, data.Width, data.Height)
+        {
+        }
+
+        public override void Render()
+        {
+            base.Render();
+            Draw.Rect(Collider, Color.Red);
+        }
     }
 }

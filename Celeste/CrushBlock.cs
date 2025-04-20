@@ -564,10 +564,20 @@ namespace Celeste
         Vertical,
       }
 
-      private struct MoveState(Vector2 from, Vector2 direction)
-      {
-        public Vector2 From = from;
-        public Vector2 Direction = direction;
-      }
+		private struct MoveState
+		{
+			// Token: 0x06001F37 RID: 7991 RVA: 0x000D7ABC File Offset: 0x000D5CBC
+			public MoveState(Vector2 from, Vector2 direction)
+			{
+				this.From = from;
+				this.Direction = direction;
+			}
+
+			// Token: 0x04001FC5 RID: 8133
+			public Vector2 From;
+
+			// Token: 0x04001FC6 RID: 8134
+			public Vector2 Direction;
+		}
     }
 }

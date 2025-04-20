@@ -182,64 +182,60 @@ namespace Celeste
         return Engine.Instance.Content.Load<Effect>(Path.Combine("Effects", name));
       }
 
-      public static void DrawVertices<T>(
-        Matrix matrix,
-        T[] vertices,
-        int vertexCount,
-        Effect effect = null,
-        BlendState blendState = null)
-        where T : struct, IVertexType
-      {
-        Effect effect1 = effect != null ? effect : GFX.FxPrimitive;
-        BlendState blendState1 = blendState != null ? blendState : BlendState.AlphaBlend;
-        Vector2 vector2;
-        ref Vector2 local = ref vector2;
-        Viewport viewport = Engine.Graphics.GraphicsDevice.Viewport;
-        double width = (double) viewport.Width;
-        viewport = Engine.Graphics.GraphicsDevice.Viewport;
-        double height = (double) viewport.Height;
-        local = new Vector2((float) width, (float) height);
-        matrix *= Matrix.CreateScale((float) (1.0 / (double) vector2.X * 2.0), (float) (-(1.0 / (double) vector2.Y) * 2.0), 1f);
-        matrix *= Matrix.CreateTranslation(-1f, 1f, 0.0f);
-        Engine.Instance.GraphicsDevice.RasterizerState = RasterizerState.CullNone;
-        Engine.Instance.GraphicsDevice.BlendState = blendState1;
-        effect1.Parameters["World"].SetValue(matrix);
-        foreach (EffectPass pass in effect1.CurrentTechnique.Passes)
+        public static void DrawVertices<T>(
+            Matrix matrix,
+            T[] vertices,
+            int vertexCount,
+            Effect effect = null,
+            BlendState blendState = null)
+            where T : struct, IVertexType
         {
-          pass.Apply();
-          Engine.Instance.GraphicsDevice.DrawUserPrimitives<T>(PrimitiveType.TriangleList, vertices, 0, vertexCount / 3);
+            Effect effect1 = effect != null ? effect : FxPrimitive;
+            BlendState blendState1 = blendState != null ? blendState : BlendState.AlphaBlend;
+            Viewport viewport = Engine.Graphics.GraphicsDevice.Viewport;
+            double width = viewport.Width;
+            viewport = Engine.Graphics.GraphicsDevice.Viewport;
+            double height = viewport.Height;
+            Vector2 local = new Vector2((float)width, (float)height);
+            matrix *= Matrix.CreateScale((float) (1.0 / local.X * 2.0), (float) (-(1.0 / local.Y) * 2.0), 1f);
+            matrix *= Matrix.CreateTranslation(-1f, 1f, 0.0f);
+            Engine.Instance.GraphicsDevice.RasterizerState = RasterizerState.CullNone;
+            Engine.Instance.GraphicsDevice.BlendState = blendState1;
+            effect1.Parameters["World"].SetValue(matrix);
+            foreach (EffectPass pass in effect1.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                Engine.Instance.GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, vertices, 0, vertexCount / 3);
+            }
         }
-      }
 
-      public static void DrawIndexedVertices<T>(
-        Matrix matrix,
-        T[] vertices,
-        int vertexCount,
-        int[] indices,
-        int primitiveCount,
-        Effect effect = null,
-        BlendState blendState = null)
-        where T : struct, IVertexType
-      {
-        Effect effect1 = effect != null ? effect : GFX.FxPrimitive;
-        BlendState blendState1 = blendState != null ? blendState : BlendState.AlphaBlend;
-        Vector2 vector2;
-        ref Vector2 local = ref vector2;
-        Viewport viewport = Engine.Graphics.GraphicsDevice.Viewport;
-        double width = (double) viewport.Width;
-        viewport = Engine.Graphics.GraphicsDevice.Viewport;
-        double height = (double) viewport.Height;
-        local = new Vector2((float) width, (float) height);
-        matrix *= Matrix.CreateScale((float) (1.0 / (double) vector2.X * 2.0), (float) (-(1.0 / (double) vector2.Y) * 2.0), 1f);
-        matrix *= Matrix.CreateTranslation(-1f, 1f, 0.0f);
-        Engine.Instance.GraphicsDevice.RasterizerState = RasterizerState.CullNone;
-        Engine.Instance.GraphicsDevice.BlendState = blendState1;
-        effect1.Parameters["World"].SetValue(matrix);
-        foreach (EffectPass pass in effect1.CurrentTechnique.Passes)
+        public static void DrawIndexedVertices<T>(
+            Matrix matrix,
+            T[] vertices,
+            int vertexCount,
+            int[] indices,
+            int primitiveCount,
+            Effect effect = null,
+            BlendState blendState = null)
+            where T : struct, IVertexType
         {
-          pass.Apply();
-          Engine.Instance.GraphicsDevice.DrawUserIndexedPrimitives<T>(PrimitiveType.TriangleList, vertices, 0, vertexCount, indices, 0, primitiveCount);
+            Effect effect1 = effect != null ? effect : FxPrimitive;
+            BlendState blendState1 = blendState != null ? blendState : BlendState.AlphaBlend;
+            Viewport viewport = Engine.Graphics.GraphicsDevice.Viewport;
+            double width = viewport.Width;
+            viewport = Engine.Graphics.GraphicsDevice.Viewport;
+            double height = viewport.Height;
+            Vector2 local = new Vector2((float)width, (float)height);
+            matrix *= Matrix.CreateScale((float) (1.0 / local.X * 2.0), (float) (-(1.0 / local.Y) * 2.0), 1f);
+            matrix *= Matrix.CreateTranslation(-1f, 1f, 0.0f);
+            Engine.Instance.GraphicsDevice.RasterizerState = RasterizerState.CullNone;
+            Engine.Instance.GraphicsDevice.BlendState = blendState1;
+            effect1.Parameters["World"].SetValue(matrix);
+            foreach (EffectPass pass in effect1.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                Engine.Instance.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList, vertices, 0, vertexCount, indices, 0, primitiveCount);
+            }
         }
-      }
     }
 }

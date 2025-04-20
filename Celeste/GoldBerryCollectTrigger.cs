@@ -11,7 +11,10 @@ namespace Celeste
 {
 
     [Tracked(false)]
-    public class GoldBerryCollectTrigger(EntityData e, Vector2 offset) : Trigger(e, offset)
+    public class GoldBerryCollectTrigger : Trigger
     {
+        public GoldBerryCollectTrigger(EntityData e, Vector2 offset) : base(e, offset)
+        {
+        }
     }
 }

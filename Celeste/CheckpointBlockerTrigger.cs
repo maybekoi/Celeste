@@ -1,17 +1,16 @@
-// Decompiled with JetBrains decompiler
-// Type: Celeste.CheckpointBlockerTrigger
-// Assembly: Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
-// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Celeste\Celeste.exe
-
+using System;
 using Microsoft.Xna.Framework;
 using Monocle;
 
 namespace Celeste
 {
-
+    // Token: 0x020001E3 RID: 483
     [Tracked(false)]
-    public class CheckpointBlockerTrigger(EntityData data, Vector2 offset) : Trigger(data, offset)
+    public class CheckpointBlockerTrigger : Trigger
     {
+        // Token: 0x0600102A RID: 4138 RVA: 0x00042A43 File Offset: 0x00040C43
+        public CheckpointBlockerTrigger(EntityData data, Vector2 offset) : base(data, offset)
+        {
+        }
     }
 }

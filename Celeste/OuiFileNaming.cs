@@ -224,9 +224,9 @@ namespace Celeste
         {
           if (!string.IsNullOrWhiteSpace(this.Name) && MInput.Keyboard.Check(Keys.LeftControl) && MInput.Keyboard.Pressed(Keys.S))
             this.ResetDefaultName();
-          if (Celeste.Input.MenuJournal.Pressed && this.Japanese)
+          if (Input.MenuJournal.Pressed && this.Japanese)
             this.SwapType();
-          if (Celeste.Input.MenuRight.Pressed && (this.optionsIndex < 3 || !this.selectingOptions) && (this.Name.Length > 0 || !this.selectingOptions))
+          if (Input.MenuRight.Pressed && (this.optionsIndex < 3 || !this.selectingOptions) && (this.Name.Length > 0 || !this.selectingOptions))
           {
             if (this.selectingOptions)
             {
@@ -243,7 +243,7 @@ namespace Celeste
             this.wiggler.Start();
             Audio.Play("event:/ui/main/rename_entry_rollover");
           }
-          else if (Celeste.Input.MenuLeft.Pressed && (this.optionsIndex > 0 || !this.selectingOptions))
+          else if (Input.MenuLeft.Pressed && (this.optionsIndex > 0 || !this.selectingOptions))
           {
             if (this.selectingOptions)
             {
@@ -260,7 +260,7 @@ namespace Celeste
             this.wiggler.Start();
             Audio.Play("event:/ui/main/rename_entry_rollover");
           }
-          else if (Celeste.Input.MenuDown.Pressed && !this.selectingOptions)
+          else if (Input.MenuDown.Pressed && !this.selectingOptions)
           {
             for (int index = this.line + 1; index < this.letters.Length; ++index)
             {
@@ -281,7 +281,7 @@ namespace Celeste
             this.wiggler.Start();
             Audio.Play("event:/ui/main/rename_entry_rollover");
           }
-          else if ((Celeste.Input.MenuUp.Pressed || this.selectingOptions && this.Name.Length <= 0 && this.optionsIndex > 0) && (this.line > 0 || this.selectingOptions))
+          else if ((Input.MenuUp.Pressed || this.selectingOptions && this.Name.Length <= 0 && this.optionsIndex > 0) && (this.line > 0 || this.selectingOptions))
           {
             if (this.selectingOptions)
             {
@@ -305,7 +305,7 @@ namespace Celeste
             this.wiggler.Start();
             Audio.Play("event:/ui/main/rename_entry_rollover");
           }
-          else if (Celeste.Input.MenuConfirm.Pressed)
+          else if (Input.MenuConfirm.Pressed)
           {
             if (this.selectingOptions)
             {
@@ -344,14 +344,14 @@ namespace Celeste
             else
               Audio.Play("event:/ui/main/button_invalid");
           }
-          else if (Celeste.Input.MenuCancel.Pressed)
+          else if (Input.MenuCancel.Pressed)
           {
             if (this.Name.Length > 0)
               this.Backspace();
             else
               this.Cancel();
           }
-          else if (Celeste.Input.Pause.Pressed)
+          else if (Input.Pause.Pressed)
             this.Finish();
         }
         this.pressedTimer -= Engine.DeltaTime;
@@ -456,7 +456,7 @@ namespace Celeste
           return;
         float scale1 = 1f;
         string text = Dialog.Clean(this.hiragana ? "NAME_LETTERS_SWAP_KATAKANA" : "NAME_LETTERS_SWAP_HIRAGANA");
-        MTexture mtexture = Celeste.Input.GuiButton(Celeste.Input.MenuJournal);
+        MTexture mtexture = Input.GuiButton(Input.MenuJournal);
         ActiveFont.Measure(text);
         float num3 = (float) mtexture.Width * scale1;
         Vector2 position = new Vector2(70f, (float) (1144.0 - 154.0 * (double) this.ease));

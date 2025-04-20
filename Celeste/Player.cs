@@ -608,7 +608,7 @@ namespace Celeste
           }
           if (this.reflection.IsRendering && this.FlipInReflection)
           {
-            this.Facing = (Facings) -(int) this.Facing;
+            this.Facing = (Facings)(-(int)this.Facing);
             this.Hair.Facing = this.Facing;
           }
           this.Sprite.Scale.X *= (float) this.Facing;
@@ -630,7 +630,7 @@ namespace Celeste
           this.Sprite.Scale.X *= (float) this.Facing;
           if (this.reflection.IsRendering && this.FlipInReflection)
           {
-            this.Facing = (Facings) -(int) this.Facing;
+            this.Facing = (Facings)(-(int)this.Facing);
             this.Hair.Facing = this.Facing;
           }
         }
@@ -1191,7 +1191,7 @@ namespace Celeste
                 else if (this.Sprite.CurrentAnimationID != "skid")
                   this.Sprite.Play("flip");
               }
-              else if ((double) this.windDirection.X != 0.0 && (double) this.windTimeout > 0.0 && this.Facing == (Facings) -Math.Sign(this.windDirection.X))
+              else if ((double)this.windDirection.X != 0.0 && (double)this.windTimeout > 0.0 &&this.Facing == (Facings)(-Math.Sign(this.windDirection.X)))
                 this.Sprite.Play("runWind");
               else if (!this.Sprite.Running || this.Sprite.CurrentAnimationID == "runWind" || this.Sprite.CurrentAnimationID == "runSlow_carry" && this.Holding == null)
               {
@@ -3169,7 +3169,7 @@ namespace Celeste
         this.launched = false;
         this.canCurveDash = true;
         if ((double) Engine.TimeRate > 0.25)
-          Celeste.Celeste.Freeze(0.05f);
+          Celeste.Freeze(0.05f);
         this.dashCooldownTimer = 0.2f;
         this.dashRefillCooldownTimer = 0.1f;
         this.StartedDashing = true;
@@ -3534,7 +3534,7 @@ namespace Celeste
       {
         this.calledDashEvents = false;
         this.dashStartedOnGround = false;
-        Celeste.Celeste.Freeze(0.05f);
+        Celeste.Freeze(0.05f);
         Dust.Burst(this.Position, (-this.DashDir).Angle(), 8);
         this.dashCooldownTimer = 0.2f;
         this.dashRefillCooldownTimer = 0.1f;
@@ -3665,7 +3665,7 @@ namespace Celeste
       public Vector2 ExplodeLaunch(Vector2 from, bool snapUp = true, bool sidesOnly = false)
       {
         Input.Rumble(RumbleStrength.Strong, RumbleLength.Medium);
-        Celeste.Celeste.Freeze(0.1f);
+        Celeste.Freeze(0.1f);
         this.launchApproachX = new float?();
         Vector2 vector2 = (this.Center - from).SafeNormalize(-Vector2.UnitY);
         float num = Vector2.Dot(vector2, Vector2.UnitY);
@@ -3792,7 +3792,7 @@ namespace Celeste
           crystalStaticSpinner.Destroy();
           this.level.Shake();
           Input.Rumble(RumbleStrength.Medium, RumbleLength.Short);
-          Celeste.Celeste.Freeze(0.01f);
+          Celeste.Freeze(0.01f);
         }
         return 10;
       }
@@ -3909,7 +3909,7 @@ namespace Celeste
           }
           else if ((double) this.dreamDashCanEndTimer <= 0.0)
           {
-            Celeste.Celeste.Freeze(0.05f);
+            Celeste.Freeze(0.05f);
             if (Input.Jump.Pressed && (double) this.DashDir.X != 0.0)
             {
               this.dreamJump = true;
@@ -4529,7 +4529,7 @@ namespace Celeste
           crystalStaticSpinner.Destroy();
           this.level.Shake();
           Input.Rumble(RumbleStrength.Medium, RumbleLength.Medium);
-          Celeste.Celeste.Freeze(0.01f);
+          Celeste.Freeze(0.01f);
         }
         return 18;
       }

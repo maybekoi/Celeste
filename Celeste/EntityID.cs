@@ -1,38 +1,61 @@
-// Decompiled with JetBrains decompiler
-// Type: Celeste.EntityID
-// Assembly: Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
-// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Celeste\Celeste.exe
-
 using System;
 using System.Xml.Serialization;
 
 namespace Celeste
 {
-
+    // Token: 0x0200031A RID: 794
     [Serializable]
-    public struct EntityID(string level, int entityID)
+    public struct EntityID
     {
-      public static readonly EntityID None = new EntityID("null", -1);
-      [XmlIgnore]
-      public string Level = level;
-      [XmlIgnore]
-      public int ID = entityID;
-
-      [XmlAttribute]
-      public string Key
-      {
-        get => $"{this.Level}:{(object) this.ID}";
-        set
+        // Token: 0x170001CE RID: 462
+        // (get) Token: 0x06001934 RID: 6452 RVA: 0x000A14EE File Offset: 0x0009F6EE
+        // (set) Token: 0x06001935 RID: 6453 RVA: 0x000A150C File Offset: 0x0009F70C
+        [XmlAttribute]
+        public string Key
         {
-          string[] strArray = value.Split(':');
-          this.Level = strArray[0];
-          this.ID = int.Parse(strArray[1]);
+            get
+            {
+                return this.Level + ":" + this.ID;
+            }
+            set
+            {
+                string[] array = value.Split(new char[]
+                {
+                    ':'
+                });
+                this.Level = array[0];
+                this.ID = int.Parse(array[1]);
+            }
         }
-      }
 
-      public override string ToString() => this.Key;
+        // Token: 0x06001936 RID: 6454 RVA: 0x000A1542 File Offset: 0x0009F742
+        public EntityID(string level, int entityID)
+        {
+            this.Level = level;
+            this.ID = entityID;
+        }
 
-      public override int GetHashCode() => this.Level.GetHashCode() ^ this.ID;
+        // Token: 0x06001937 RID: 6455 RVA: 0x000A1552 File Offset: 0x0009F752
+        public override string ToString()
+        {
+            return this.Key;
+        }
+
+        // Token: 0x06001938 RID: 6456 RVA: 0x000A155A File Offset: 0x0009F75A
+        public override int GetHashCode()
+        {
+            return this.Level.GetHashCode() ^ this.ID;
+        }
+
+        // Token: 0x040015B2 RID: 5554
+        public static readonly EntityID None = new EntityID("null", -1);
+
+        // Token: 0x040015B3 RID: 5555
+        [XmlIgnore]
+        public string Level;
+
+        // Token: 0x040015B4 RID: 5556
+        [XmlIgnore]
+        public int ID;
     }
 }

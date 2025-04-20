@@ -387,10 +387,8 @@ namespace Monocle
         float sliceAdd = 0.7853982f)
       {
         position = position.Floor();
-        Rectangle clipRect = tex.ClipRect with
-        {
-          Width = sliceSize
-        };
+        Rectangle clipRect = tex.ClipRect;
+        clipRect.Width = sliceSize;
         int num = 0;
         for (; clipRect.X < tex.ClipRect.X + tex.ClipRect.Width; clipRect.Width = Math.Min(sliceSize, tex.ClipRect.X + tex.ClipRect.Width - clipRect.X))
         {
@@ -415,10 +413,8 @@ namespace Monocle
         float sliceAdd = 0.7853982f)
       {
         position = position.Floor();
-        Rectangle clipRect = tex.ClipRect with
-        {
-          Height = sliceSize
-        };
+        Rectangle clipRect = tex.ClipRect;
+        clipRect.Height = sliceSize;
         int num = 0;
         for (; clipRect.Y < tex.ClipRect.Y + tex.ClipRect.Height; clipRect.Height = Math.Min(sliceSize, tex.ClipRect.Y + tex.ClipRect.Height - clipRect.Y))
         {
@@ -443,10 +439,8 @@ namespace Monocle
         float sliceAdd = 0.7853982f)
       {
         position = position.Floor();
-        Rectangle clipRect = tex.ClipRect with
-        {
-          Height = sliceSize
-        };
+        Rectangle clipRect = tex.ClipRect;
+        clipRect.Height = sliceSize;
         int num = 0;
         for (; clipRect.Y < tex.ClipRect.Y + tex.ClipRect.Height; clipRect.Y += clipRect.Height)
         {

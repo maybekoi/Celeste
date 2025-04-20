@@ -5,19 +5,22 @@
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Celeste\Celeste.exe
 
 using Microsoft.Xna.Framework;
-using Monocle;
 
 namespace Celeste
 {
-
-    public class WindAttackTrigger(EntityData data, Vector2 offset) : Trigger(data, offset)
+    public class WindAttackTrigger : Trigger
     {
-      public override void OnEnter(Player player)
-      {
-        base.OnEnter(player);
-        if (this.Scene.Entities.FindFirst<Snowball>() == null)
-          this.Scene.Add((Entity) new Snowball());
-        this.RemoveSelf();
-      }
+        public WindAttackTrigger(EntityData data, Vector2 offset)
+            : base(data, offset)
+        {
+        }
+
+        public override void OnEnter(Player player)
+        {
+            base.OnEnter(player);
+            if (Scene.Entities.FindFirst<Snowball>() == null)
+                Scene.Add(new Snowball());
+            RemoveSelf();
+        }
     }
 }

@@ -204,9 +204,9 @@ namespace Monocle
         {
           if (Engine.DashAssistFreeze)
           {
-            if (Celeste.Input.Dash.Check || !Engine.DashAssistFreezePress)
+            if (Input.Dash.Check || !Engine.DashAssistFreezePress)
             {
-              if (Celeste.Input.Dash.Check)
+              if (Input.Dash.Check)
                 Engine.DashAssistFreezePress = true;
               if (this.scene != null)
               {

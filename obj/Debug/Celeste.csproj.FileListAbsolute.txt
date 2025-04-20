@@ -1,2 +1,9 @@
 C:\Users\Ty\Documents\GitHub\CelesteDecomp\obj\Debug\Celeste.csproj.AssemblyReference.cache
 C:\Users\Ty\Documents\GitHub\CelesteDecomp\obj\Debug\Celeste.csproj.CoreCompileInputs.cache
+C:\Users\Ty\Documents\GitHub\CelesteDecomp\bin\Debug\Celeste.exe.config
+C:\Users\Ty\Documents\GitHub\CelesteDecomp\bin\Debug\Celeste.exe
+C:\Users\Ty\Documents\GitHub\CelesteDecomp\bin\Debug\Celeste.pdb
+C:\Users\Ty\Documents\GitHub\CelesteDecomp\bin\Debug\Steamworks.NET.dll
+C:\Users\Ty\Documents\GitHub\CelesteDecomp\obj\Debug\Celeste.csproj.Up2Date
+C:\Users\Ty\Documents\GitHub\CelesteDecomp\obj\Debug\Celeste.exe
+C:\Users\Ty\Documents\GitHub\CelesteDecomp\obj\Debug\Celeste.pdb

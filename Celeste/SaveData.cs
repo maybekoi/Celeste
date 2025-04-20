@@ -149,7 +149,7 @@ namespace Celeste
         Input.MoveX.Inverted = Input.Aim.InvertedX = Input.Feather.InvertedX = false;
       }
 
-      public void BeforeSave() => SaveData.Instance.Version = Celeste.Celeste.Instance.Version.ToString();
+      public void BeforeSave() => SaveData.Instance.Version = Celeste.Instance.Version.ToString();
 
       public void StartSession(Session session)
       {
@@ -330,7 +330,7 @@ namespace Celeste
 
       public bool FoundAnyCheckpoints(AreaKey area)
       {
-        if (Celeste.Celeste.PlayMode == Celeste.Celeste.PlayModes.Event)
+        if (Celeste.PlayMode == Celeste.PlayModes.Event)
           return false;
         if (!this.DebugMode && !this.CheatMode)
           return this.Areas[area.ID].Modes[(int) area.Mode].Checkpoints.Count > 0;
@@ -340,7 +340,7 @@ namespace Celeste
 
       public HashSet<string> GetCheckpoints(AreaKey area)
       {
-        if (Celeste.Celeste.PlayMode == Celeste.Celeste.PlayModes.Event)
+        if (Celeste.PlayMode == Celeste.PlayModes.Event)
           return new HashSet<string>();
         if (!this.DebugMode && !this.CheatMode)
           return this.Areas[area.ID].Modes[(int) area.Mode].Checkpoints;
@@ -378,7 +378,7 @@ namespace Celeste
         }
       }
 
-      public int MaxArea => Celeste.Celeste.PlayMode == Celeste.Celeste.PlayModes.Event ? 2 : AreaData.Areas.Count - 1;
+      public int MaxArea => Celeste.PlayMode == Celeste.PlayModes.Event ? 2 : AreaData.Areas.Count - 1;
 
       public int MaxAssistArea => AreaData.Areas.Count - 1;
 
