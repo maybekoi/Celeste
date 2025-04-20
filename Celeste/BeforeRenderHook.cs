@@ -7,16 +7,18 @@
 using Monocle;
 using System;
 
-namespace Celeste;
-
-[Tracked(false)]
-public class BeforeRenderHook : Component
+namespace Celeste
 {
-  public Action Callback;
 
-  public BeforeRenderHook(Action callback)
-    : base(false, true)
-  {
-    this.Callback = callback;
-  }
+    [Tracked(false)]
+    public class BeforeRenderHook : Component
+    {
+        public Action Callback;
+
+        public BeforeRenderHook(Action callback)
+          : base(false, true)
+        {
+            this.Callback = callback;
+        }
+    }
 }

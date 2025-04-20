@@ -6,23 +6,24 @@
 
 using Steamworks;
 
-namespace Celeste;
-
-public static class Achievements
+namespace Celeste
 {
-  public static string ID(Achievement achievement) => achievement.ToString();
+    public static class Achievements
+    {
+        public static string ID(Achievement achievement) => achievement.ToString();
 
-  public static bool Has(Achievement achievement)
-  {
-    bool pbAchieved;
-    return SteamUserStats.GetAchievement(Achievements.ID(achievement), out pbAchieved) & pbAchieved;
-  }
+        public static bool Has(Achievement achievement)
+        {
+            bool pbAchieved;
+            return SteamUserStats.GetAchievement(Achievements.ID(achievement), out pbAchieved) & pbAchieved;
+        }
 
-  public static void Register(Achievement achievement)
-  {
-    if (Achievements.Has(achievement))
-      return;
-    SteamUserStats.SetAchievement(Achievements.ID(achievement));
-    Stats.Store();
-  }
+        public static void Register(Achievement achievement)
+        {
+            if (Achievements.Has(achievement))
+                return;
+            SteamUserStats.SetAchievement(Achievements.ID(achievement));
+            Stats.Store();
+        }
+    }
 }
