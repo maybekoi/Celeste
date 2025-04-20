@@ -3,6 +3,7 @@
 * A (very messy) Celeste Decompilation! 
 * To find the steam related stuff in the Celeste.cs file search for the "STEAM SHIT!" comment and you'll find it!
 * You NEED assets from the original game to run this decompilation.
+* DONE IN UNDER 24 HOURS LMAO! (18 hours)
 
 # Tools used
 
