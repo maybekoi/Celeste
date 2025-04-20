@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace FMOD.Studio;
 
 internal struct USER_PROPERTY_INTERNAL

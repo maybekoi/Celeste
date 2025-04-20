@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace FMOD;
 
 public struct DSP_PARAMETER_FLOAT_MAPPING_PIECEWISE_LINEAR

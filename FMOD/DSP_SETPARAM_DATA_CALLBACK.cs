@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace FMOD;
 
 public delegate RESULT DSP_SETPARAM_DATA_CALLBACK(

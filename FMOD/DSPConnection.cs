@@ -7,7 +7,6 @@
 using System;
 using System.Runtime.InteropServices;
 
-#nullable disable
 namespace FMOD;
 
 public class DSPConnection(IntPtr raw) : HandleBase(raw)

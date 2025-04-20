@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace FMOD.Studio;
 
 public delegate RESULT COMMANDREPLAY_CREATE_INSTANCE_CALLBACK(

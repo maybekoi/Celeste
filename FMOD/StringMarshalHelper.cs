@@ -8,7 +8,6 @@ using System;
 using System.Runtime.InteropServices;
 using System.Text;
 
-#nullable disable
 namespace FMOD;
 
 internal class StringMarshalHelper

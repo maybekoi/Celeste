@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace FMOD;
 
 public delegate IntPtr DSP_REALLOC_FUNC(

@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace FMOD;
 
 public delegate RESULT SYSTEM_CALLBACK(

@@ -6,7 +6,6 @@
 
 using System.Runtime.InteropServices;
 
-#nullable disable
 namespace FMOD;
 
 [StructLayout(LayoutKind.Sequential, Size = 1)]

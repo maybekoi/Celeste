@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace FMOD.Studio;
 
 public struct BANK_INFO

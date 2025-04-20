@@ -7,7 +7,6 @@
 using System;
 using System.Runtime.InteropServices;
 
-#nullable disable
 namespace FMOD;
 
 public class Geometry(IntPtr raw) : HandleBase(raw)

@@ -6,7 +6,6 @@
 
 using System.Runtime.InteropServices;
 
-#nullable disable
 namespace FMOD;
 
 public class Debug

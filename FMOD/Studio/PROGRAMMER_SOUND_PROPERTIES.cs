@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace FMOD.Studio;
 
 public struct PROGRAMMER_SOUND_PROPERTIES

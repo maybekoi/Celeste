@@ -8,7 +8,6 @@ using System;
 using System.Runtime.InteropServices;
 using System.Text;
 
-#nullable disable
 namespace FMOD.Studio;
 
 public class Bank(IntPtr raw) : HandleBase(raw)

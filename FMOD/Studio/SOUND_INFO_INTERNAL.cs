@@ -7,7 +7,6 @@
 using System;
 using System.Runtime.InteropServices;
 
-#nullable disable
 namespace FMOD.Studio;
 
 public struct SOUND_INFO_INTERNAL

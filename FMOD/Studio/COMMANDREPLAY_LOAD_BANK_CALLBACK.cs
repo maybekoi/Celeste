@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace FMOD.Studio;
 
 public delegate RESULT COMMANDREPLAY_LOAD_BANK_CALLBACK(

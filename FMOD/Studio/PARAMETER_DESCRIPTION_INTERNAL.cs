@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace FMOD.Studio;
 
 internal struct PARAMETER_DESCRIPTION_INTERNAL

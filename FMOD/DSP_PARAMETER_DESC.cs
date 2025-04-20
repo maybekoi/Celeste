@@ -6,7 +6,6 @@
 
 using System.Runtime.InteropServices;
 
-#nullable disable
 namespace FMOD;
 
 public struct DSP_PARAMETER_DESC
