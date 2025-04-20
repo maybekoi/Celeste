@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ty\\Documents\\GitHub\\CelesteDecomp\\Celeste\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{54163AFB-9C6D-4A35-B3B9-759F6B481835}|Celeste.csproj|c:\\users\\ty\\documents\\github\\celestedecomp\\celeste\\celeste\\absorborb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54163AFB-9C6D-4A35-B3B9-759F6B481835}|Celeste.csproj|solutionrelative:celeste\\absorborb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AbsorbOrb.cs",
+              "DocumentMoniker": "C:\\Users\\Ty\\Documents\\GitHub\\CelesteDecomp\\Celeste\\Celeste\\AbsorbOrb.cs",
+              "RelativeDocumentMoniker": "Celeste\\AbsorbOrb.cs",
+              "ToolTip": "C:\\Users\\Ty\\Documents\\GitHub\\CelesteDecomp\\Celeste\\Celeste\\AbsorbOrb.cs",
+              "RelativeToolTip": "Celeste\\AbsorbOrb.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-20T03:04:15.297Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: Monocle.SimpleCurve
+// Assembly: Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
+// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Celeste\Celeste.exe
+
+using Microsoft.Xna.Framework;
+
+#nullable disable
+namespace Monocle;
+
+public struct SimpleCurve(Vector2 begin, Vector2 end, Vector2 control)
+{
+  public Vector2 Begin = begin;
+  public Vector2 End = end;
+  public Vector2 Control = control;
+
+  public void DoubleControl()
+  {
+    this.Control += this.Control - (this.Begin + (this.End - this.Begin) / 2f);
+  }
+
+  public Vector2 GetPoint(float percent)
+  {
+    float num = 1f - percent;
+    return num * num * this.Begin + 2f * num * percent * this.Control + percent * percent * this.End;
+  }
+
+  public float GetLengthParametric(int resolution)
+  {
+    Vector2 vector2 = this.Begin;
+    float lengthParametric = 0.0f;
+    for (int index = 1; index <= resolution; ++index)
+    {
+      Vector2 point = this.GetPoint((float) index / (float) resolution);
+      lengthParametric += (point - vector2).Length();
+      vector2 = point;
+    }
+    return lengthParametric;
+  }
+
+  public void Render(Vector2 offset, Color color, int resolution)
+  {
+    Vector2 start = offset + this.Begin;
+    for (int index = 1; index <= resolution; ++index)
+    {
+      Vector2 end = offset + this.GetPoint((float) index / (float) resolution);
+      Draw.Line(start, end, color);
+      start = end;
+    }
+  }
+
+  public void Render(Vector2 offset, Color color, int resolution, float thickness)
+  {
+    Vector2 start = offset + this.Begin;
+    for (int index = 1; index <= resolution; ++index)
+    {
+      Vector2 end = offset + this.GetPoint((float) index / (float) resolution);
+      Draw.Line(start, end, color, thickness);
+      start = end;
+    }
+  }
+
+  public void Render(Color color, int resolution) => this.Render(Vector2.Zero, color, resolution);
+
+  public void Render(Color color, int resolution, float thickness)
+  {
+    this.Render(Vector2.Zero, color, resolution, thickness);
+  }
+}

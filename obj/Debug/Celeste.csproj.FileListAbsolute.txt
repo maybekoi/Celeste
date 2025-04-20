@@ -1,0 +1,2 @@
+C:\Users\Ty\Documents\GitHub\CelesteDecomp\obj\Debug\Celeste.csproj.AssemblyReference.cache
+C:\Users\Ty\Documents\GitHub\CelesteDecomp\obj\Debug\Celeste.csproj.CoreCompileInputs.cache
