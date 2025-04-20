@@ -4,13 +4,13 @@
 // MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Celeste\Celeste.exe
 
-#nullable disable
-namespace SimplexNoise;
-
-public class Noise
+namespace SimplexNoise
 {
-  public static byte[] perm = new byte[512 /*0x0200*/]
-  {
+
+    public class Noise
+    {
+        public static byte[] perm = new byte[512 /*0x0200*/]
+        {
     (byte) 151,
     (byte) 160 /*0xA0*/,
     (byte) 137,
@@ -523,266 +523,267 @@ public class Noise
     (byte) 61,
     (byte) 156,
     (byte) 180
-  };
+        };
 
-  public static float Generate(float x)
-  {
-    int num1 = Noise.FastFloor(x);
-    int num2 = num1 + 1;
-    float x1 = x - (float) num1;
-    float x2 = x1 - 1f;
-    double num3 = 1.0 - (double) x1 * (double) x1;
-    double num4 = num3 * num3;
-    float num5 = (float) (num4 * num4) * Noise.grad((int) Noise.perm[num1 & (int) byte.MaxValue], x1);
-    double num6 = 1.0 - (double) x2 * (double) x2;
-    double num7 = num6 * num6;
-    float num8 = (float) (num7 * num7) * Noise.grad((int) Noise.perm[num2 & (int) byte.MaxValue], x2);
-    return (float) (0.39500001072883606 * ((double) num5 + (double) num8));
-  }
+        public static float Generate(float x)
+        {
+            int num1 = Noise.FastFloor(x);
+            int num2 = num1 + 1;
+            float x1 = x - (float)num1;
+            float x2 = x1 - 1f;
+            double num3 = 1.0 - (double)x1 * (double)x1;
+            double num4 = num3 * num3;
+            float num5 = (float)(num4 * num4) * Noise.grad((int)Noise.perm[num1 & (int)byte.MaxValue], x1);
+            double num6 = 1.0 - (double)x2 * (double)x2;
+            double num7 = num6 * num6;
+            float num8 = (float)(num7 * num7) * Noise.grad((int)Noise.perm[num2 & (int)byte.MaxValue], x2);
+            return (float)(0.39500001072883606 * ((double)num5 + (double)num8));
+        }
 
-  public static float Generate(float x, float y)
-  {
-    float num1 = (float) (((double) x + (double) y) * 0.36602538824081421);
-    double x1 = (double) x + (double) num1;
-    float x2 = y + num1;
-    int num2 = Noise.FastFloor((float) x1);
-    int num3 = Noise.FastFloor(x2);
-    float num4 = (float) (num2 + num3) * 0.211324871f;
-    float num5 = (float) num2 - num4;
-    float num6 = (float) num3 - num4;
-    float x3 = x - num5;
-    float y1 = y - num6;
-    int num7;
-    int num8;
-    if ((double) x3 > (double) y1)
-    {
-      num7 = 1;
-      num8 = 0;
-    }
-    else
-    {
-      num7 = 0;
-      num8 = 1;
-    }
-    float x4 = (float) ((double) x3 - (double) num7 + 0.21132487058639526);
-    float y2 = (float) ((double) y1 - (double) num8 + 0.21132487058639526);
-    float x5 = (float) ((double) x3 - 1.0 + 0.42264974117279053);
-    float y3 = (float) ((double) y1 - 1.0 + 0.42264974117279053);
-    int num9 = num2 % 256 /*0x0100*/;
-    int index = num3 % 256 /*0x0100*/;
-    float num10 = (float) (0.5 - (double) x3 * (double) x3 - (double) y1 * (double) y1);
-    float num11;
-    if ((double) num10 < 0.0)
-    {
-      num11 = 0.0f;
-    }
-    else
-    {
-      float num12 = num10 * num10;
-      num11 = num12 * num12 * Noise.grad((int) Noise.perm[num9 + (int) Noise.perm[index]], x3, y1);
-    }
-    float num13 = (float) (0.5 - (double) x4 * (double) x4 - (double) y2 * (double) y2);
-    float num14;
-    if ((double) num13 < 0.0)
-    {
-      num14 = 0.0f;
-    }
-    else
-    {
-      float num15 = num13 * num13;
-      num14 = num15 * num15 * Noise.grad((int) Noise.perm[num9 + num7 + (int) Noise.perm[index + num8]], x4, y2);
-    }
-    float num16 = (float) (0.5 - (double) x5 * (double) x5 - (double) y3 * (double) y3);
-    float num17;
-    if ((double) num16 < 0.0)
-    {
-      num17 = 0.0f;
-    }
-    else
-    {
-      float num18 = num16 * num16;
-      num17 = num18 * num18 * Noise.grad((int) Noise.perm[num9 + 1 + (int) Noise.perm[index + 1]], x5, y3);
-    }
-    return (float) (40.0 * ((double) num11 + (double) num14 + (double) num17));
-  }
+        public static float Generate(float x, float y)
+        {
+            float num1 = (float)(((double)x + (double)y) * 0.36602538824081421);
+            double x1 = (double)x + (double)num1;
+            float x2 = y + num1;
+            int num2 = Noise.FastFloor((float)x1);
+            int num3 = Noise.FastFloor(x2);
+            float num4 = (float)(num2 + num3) * 0.211324871f;
+            float num5 = (float)num2 - num4;
+            float num6 = (float)num3 - num4;
+            float x3 = x - num5;
+            float y1 = y - num6;
+            int num7;
+            int num8;
+            if ((double)x3 > (double)y1)
+            {
+                num7 = 1;
+                num8 = 0;
+            }
+            else
+            {
+                num7 = 0;
+                num8 = 1;
+            }
+            float x4 = (float)((double)x3 - (double)num7 + 0.21132487058639526);
+            float y2 = (float)((double)y1 - (double)num8 + 0.21132487058639526);
+            float x5 = (float)((double)x3 - 1.0 + 0.42264974117279053);
+            float y3 = (float)((double)y1 - 1.0 + 0.42264974117279053);
+            int num9 = num2 % 256 /*0x0100*/;
+            int index = num3 % 256 /*0x0100*/;
+            float num10 = (float)(0.5 - (double)x3 * (double)x3 - (double)y1 * (double)y1);
+            float num11;
+            if ((double)num10 < 0.0)
+            {
+                num11 = 0.0f;
+            }
+            else
+            {
+                float num12 = num10 * num10;
+                num11 = num12 * num12 * Noise.grad((int)Noise.perm[num9 + (int)Noise.perm[index]], x3, y1);
+            }
+            float num13 = (float)(0.5 - (double)x4 * (double)x4 - (double)y2 * (double)y2);
+            float num14;
+            if ((double)num13 < 0.0)
+            {
+                num14 = 0.0f;
+            }
+            else
+            {
+                float num15 = num13 * num13;
+                num14 = num15 * num15 * Noise.grad((int)Noise.perm[num9 + num7 + (int)Noise.perm[index + num8]], x4, y2);
+            }
+            float num16 = (float)(0.5 - (double)x5 * (double)x5 - (double)y3 * (double)y3);
+            float num17;
+            if ((double)num16 < 0.0)
+            {
+                num17 = 0.0f;
+            }
+            else
+            {
+                float num18 = num16 * num16;
+                num17 = num18 * num18 * Noise.grad((int)Noise.perm[num9 + 1 + (int)Noise.perm[index + 1]], x5, y3);
+            }
+            return (float)(40.0 * ((double)num11 + (double)num14 + (double)num17));
+        }
 
-  public static float Generate(float x, float y, float z)
-  {
-    float num1 = (float) (((double) x + (double) y + (double) z) * 0.3333333432674408);
-    double x1 = (double) x + (double) num1;
-    float x2 = y + num1;
-    float x3 = z + num1;
-    int x4 = Noise.FastFloor((float) x1);
-    int x5 = Noise.FastFloor(x2);
-    int x6 = Noise.FastFloor(x3);
-    float num2 = (float) (x4 + x5 + x6) * 0.166666672f;
-    float num3 = (float) x4 - num2;
-    float num4 = (float) x5 - num2;
-    float num5 = (float) x6 - num2;
-    float x7 = x - num3;
-    float y1 = y - num4;
-    float z1 = z - num5;
-    int num6;
-    int num7;
-    int num8;
-    int num9;
-    int num10;
-    int num11;
-    if ((double) x7 >= (double) y1)
-    {
-      if ((double) y1 >= (double) z1)
-      {
-        num6 = 1;
-        num7 = 0;
-        num8 = 0;
-        num9 = 1;
-        num10 = 1;
-        num11 = 0;
-      }
-      else if ((double) x7 >= (double) z1)
-      {
-        num6 = 1;
-        num7 = 0;
-        num8 = 0;
-        num9 = 1;
-        num10 = 0;
-        num11 = 1;
-      }
-      else
-      {
-        num6 = 0;
-        num7 = 0;
-        num8 = 1;
-        num9 = 1;
-        num10 = 0;
-        num11 = 1;
-      }
-    }
-    else if ((double) y1 < (double) z1)
-    {
-      num6 = 0;
-      num7 = 0;
-      num8 = 1;
-      num9 = 0;
-      num10 = 1;
-      num11 = 1;
-    }
-    else if ((double) x7 < (double) z1)
-    {
-      num6 = 0;
-      num7 = 1;
-      num8 = 0;
-      num9 = 0;
-      num10 = 1;
-      num11 = 1;
-    }
-    else
-    {
-      num6 = 0;
-      num7 = 1;
-      num8 = 0;
-      num9 = 1;
-      num10 = 1;
-      num11 = 0;
-    }
-    float x8 = (float) ((double) x7 - (double) num6 + 0.1666666716337204);
-    float y2 = (float) ((double) y1 - (double) num7 + 0.1666666716337204);
-    float z2 = (float) ((double) z1 - (double) num8 + 0.1666666716337204);
-    float x9 = (float) ((double) x7 - (double) num9 + 0.3333333432674408);
-    float y3 = (float) ((double) y1 - (double) num10 + 0.3333333432674408);
-    float z3 = (float) ((double) z1 - (double) num11 + 0.3333333432674408);
-    float x10 = (float) ((double) x7 - 1.0 + 0.5);
-    float y4 = (float) ((double) y1 - 1.0 + 0.5);
-    float z4 = (float) ((double) z1 - 1.0 + 0.5);
-    int num12 = Noise.Mod(x4, 256 /*0x0100*/);
-    int num13 = Noise.Mod(x5, 256 /*0x0100*/);
-    int index = Noise.Mod(x6, 256 /*0x0100*/);
-    float num14 = (float) (0.60000002384185791 - (double) x7 * (double) x7 - (double) y1 * (double) y1 - (double) z1 * (double) z1);
-    float num15;
-    if ((double) num14 < 0.0)
-    {
-      num15 = 0.0f;
-    }
-    else
-    {
-      float num16 = num14 * num14;
-      num15 = num16 * num16 * Noise.grad((int) Noise.perm[num12 + (int) Noise.perm[num13 + (int) Noise.perm[index]]], x7, y1, z1);
-    }
-    float num17 = (float) (0.60000002384185791 - (double) x8 * (double) x8 - (double) y2 * (double) y2 - (double) z2 * (double) z2);
-    float num18;
-    if ((double) num17 < 0.0)
-    {
-      num18 = 0.0f;
-    }
-    else
-    {
-      float num19 = num17 * num17;
-      num18 = num19 * num19 * Noise.grad((int) Noise.perm[num12 + num6 + (int) Noise.perm[num13 + num7 + (int) Noise.perm[index + num8]]], x8, y2, z2);
-    }
-    float num20 = (float) (0.60000002384185791 - (double) x9 * (double) x9 - (double) y3 * (double) y3 - (double) z3 * (double) z3);
-    float num21;
-    if ((double) num20 < 0.0)
-    {
-      num21 = 0.0f;
-    }
-    else
-    {
-      float num22 = num20 * num20;
-      num21 = num22 * num22 * Noise.grad((int) Noise.perm[num12 + num9 + (int) Noise.perm[num13 + num10 + (int) Noise.perm[index + num11]]], x9, y3, z3);
-    }
-    float num23 = (float) (0.60000002384185791 - (double) x10 * (double) x10 - (double) y4 * (double) y4 - (double) z4 * (double) z4);
-    float num24;
-    if ((double) num23 < 0.0)
-    {
-      num24 = 0.0f;
-    }
-    else
-    {
-      float num25 = num23 * num23;
-      num24 = num25 * num25 * Noise.grad((int) Noise.perm[num12 + 1 + (int) Noise.perm[num13 + 1 + (int) Noise.perm[index + 1]]], x10, y4, z4);
-    }
-    return (float) (32.0 * ((double) num15 + (double) num18 + (double) num21 + (double) num24));
-  }
+        public static float Generate(float x, float y, float z)
+        {
+            float num1 = (float)(((double)x + (double)y + (double)z) * 0.3333333432674408);
+            double x1 = (double)x + (double)num1;
+            float x2 = y + num1;
+            float x3 = z + num1;
+            int x4 = Noise.FastFloor((float)x1);
+            int x5 = Noise.FastFloor(x2);
+            int x6 = Noise.FastFloor(x3);
+            float num2 = (float)(x4 + x5 + x6) * 0.166666672f;
+            float num3 = (float)x4 - num2;
+            float num4 = (float)x5 - num2;
+            float num5 = (float)x6 - num2;
+            float x7 = x - num3;
+            float y1 = y - num4;
+            float z1 = z - num5;
+            int num6;
+            int num7;
+            int num8;
+            int num9;
+            int num10;
+            int num11;
+            if ((double)x7 >= (double)y1)
+            {
+                if ((double)y1 >= (double)z1)
+                {
+                    num6 = 1;
+                    num7 = 0;
+                    num8 = 0;
+                    num9 = 1;
+                    num10 = 1;
+                    num11 = 0;
+                }
+                else if ((double)x7 >= (double)z1)
+                {
+                    num6 = 1;
+                    num7 = 0;
+                    num8 = 0;
+                    num9 = 1;
+                    num10 = 0;
+                    num11 = 1;
+                }
+                else
+                {
+                    num6 = 0;
+                    num7 = 0;
+                    num8 = 1;
+                    num9 = 1;
+                    num10 = 0;
+                    num11 = 1;
+                }
+            }
+            else if ((double)y1 < (double)z1)
+            {
+                num6 = 0;
+                num7 = 0;
+                num8 = 1;
+                num9 = 0;
+                num10 = 1;
+                num11 = 1;
+            }
+            else if ((double)x7 < (double)z1)
+            {
+                num6 = 0;
+                num7 = 1;
+                num8 = 0;
+                num9 = 0;
+                num10 = 1;
+                num11 = 1;
+            }
+            else
+            {
+                num6 = 0;
+                num7 = 1;
+                num8 = 0;
+                num9 = 1;
+                num10 = 1;
+                num11 = 0;
+            }
+            float x8 = (float)((double)x7 - (double)num6 + 0.1666666716337204);
+            float y2 = (float)((double)y1 - (double)num7 + 0.1666666716337204);
+            float z2 = (float)((double)z1 - (double)num8 + 0.1666666716337204);
+            float x9 = (float)((double)x7 - (double)num9 + 0.3333333432674408);
+            float y3 = (float)((double)y1 - (double)num10 + 0.3333333432674408);
+            float z3 = (float)((double)z1 - (double)num11 + 0.3333333432674408);
+            float x10 = (float)((double)x7 - 1.0 + 0.5);
+            float y4 = (float)((double)y1 - 1.0 + 0.5);
+            float z4 = (float)((double)z1 - 1.0 + 0.5);
+            int num12 = Noise.Mod(x4, 256 /*0x0100*/);
+            int num13 = Noise.Mod(x5, 256 /*0x0100*/);
+            int index = Noise.Mod(x6, 256 /*0x0100*/);
+            float num14 = (float)(0.60000002384185791 - (double)x7 * (double)x7 - (double)y1 * (double)y1 - (double)z1 * (double)z1);
+            float num15;
+            if ((double)num14 < 0.0)
+            {
+                num15 = 0.0f;
+            }
+            else
+            {
+                float num16 = num14 * num14;
+                num15 = num16 * num16 * Noise.grad((int)Noise.perm[num12 + (int)Noise.perm[num13 + (int)Noise.perm[index]]], x7, y1, z1);
+            }
+            float num17 = (float)(0.60000002384185791 - (double)x8 * (double)x8 - (double)y2 * (double)y2 - (double)z2 * (double)z2);
+            float num18;
+            if ((double)num17 < 0.0)
+            {
+                num18 = 0.0f;
+            }
+            else
+            {
+                float num19 = num17 * num17;
+                num18 = num19 * num19 * Noise.grad((int)Noise.perm[num12 + num6 + (int)Noise.perm[num13 + num7 + (int)Noise.perm[index + num8]]], x8, y2, z2);
+            }
+            float num20 = (float)(0.60000002384185791 - (double)x9 * (double)x9 - (double)y3 * (double)y3 - (double)z3 * (double)z3);
+            float num21;
+            if ((double)num20 < 0.0)
+            {
+                num21 = 0.0f;
+            }
+            else
+            {
+                float num22 = num20 * num20;
+                num21 = num22 * num22 * Noise.grad((int)Noise.perm[num12 + num9 + (int)Noise.perm[num13 + num10 + (int)Noise.perm[index + num11]]], x9, y3, z3);
+            }
+            float num23 = (float)(0.60000002384185791 - (double)x10 * (double)x10 - (double)y4 * (double)y4 - (double)z4 * (double)z4);
+            float num24;
+            if ((double)num23 < 0.0)
+            {
+                num24 = 0.0f;
+            }
+            else
+            {
+                float num25 = num23 * num23;
+                num24 = num25 * num25 * Noise.grad((int)Noise.perm[num12 + 1 + (int)Noise.perm[num13 + 1 + (int)Noise.perm[index + 1]]], x10, y4, z4);
+            }
+            return (float)(32.0 * ((double)num15 + (double)num18 + (double)num21 + (double)num24));
+        }
 
-  private static int FastFloor(float x) => (double) x <= 0.0 ? (int) x - 1 : (int) x;
+        private static int FastFloor(float x) => (double)x <= 0.0 ? (int)x - 1 : (int)x;
 
-  private static int Mod(int x, int m)
-  {
-    int num = x % m;
-    return num >= 0 ? num : num + m;
-  }
+        private static int Mod(int x, int m)
+        {
+            int num = x % m;
+            return num >= 0 ? num : num + m;
+        }
 
-  private static float grad(int hash, float x)
-  {
-    int num1 = hash & 15;
-    float num2 = 1f + (float) (num1 & 7);
-    if ((num1 & 8) != 0)
-      num2 = -num2;
-    return num2 * x;
-  }
+        private static float grad(int hash, float x)
+        {
+            int num1 = hash & 15;
+            float num2 = 1f + (float)(num1 & 7);
+            if ((num1 & 8) != 0)
+                num2 = -num2;
+            return num2 * x;
+        }
 
-  private static float grad(int hash, float x, float y)
-  {
-    int num1 = hash & 7;
-    float num2 = num1 < 4 ? x : y;
-    float num3 = num1 < 4 ? y : x;
-    return (float) (((num1 & 1) != 0 ? -(double) num2 : (double) num2) + ((num1 & 2) != 0 ? -2.0 * (double) num3 : 2.0 * (double) num3));
-  }
+        private static float grad(int hash, float x, float y)
+        {
+            int num1 = hash & 7;
+            float num2 = num1 < 4 ? x : y;
+            float num3 = num1 < 4 ? y : x;
+            return (float)(((num1 & 1) != 0 ? -(double)num2 : (double)num2) + ((num1 & 2) != 0 ? -2.0 * (double)num3 : 2.0 * (double)num3));
+        }
 
-  private static float grad(int hash, float x, float y, float z)
-  {
-    int num1 = hash & 15;
-    float num2 = num1 < 8 ? x : y;
-    float num3 = num1 < 4 ? y : (num1 == 12 || num1 == 14 ? x : z);
-    return (float) (((num1 & 1) != 0 ? -(double) num2 : (double) num2) + ((num1 & 2) != 0 ? -(double) num3 : (double) num3));
-  }
+        private static float grad(int hash, float x, float y, float z)
+        {
+            int num1 = hash & 15;
+            float num2 = num1 < 8 ? x : y;
+            float num3 = num1 < 4 ? y : (num1 == 12 || num1 == 14 ? x : z);
+            return (float)(((num1 & 1) != 0 ? -(double)num2 : (double)num2) + ((num1 & 2) != 0 ? -(double)num3 : (double)num3));
+        }
 
-  private static float grad(int hash, float x, float y, float z, float t)
-  {
-    int num1 = hash & 31 /*0x1F*/;
-    float num2 = num1 < 24 ? x : y;
-    float num3 = num1 < 16 /*0x10*/ ? y : z;
-    float num4 = num1 < 8 ? z : t;
-    return (float) (((num1 & 1) != 0 ? -(double) num2 : (double) num2) + ((num1 & 2) != 0 ? -(double) num3 : (double) num3) + ((num1 & 4) != 0 ? -(double) num4 : (double) num4));
-  }
+        private static float grad(int hash, float x, float y, float z, float t)
+        {
+            int num1 = hash & 31 /*0x1F*/;
+            float num2 = num1 < 24 ? x : y;
+            float num3 = num1 < 16 /*0x10*/ ? y : z;
+            float num4 = num1 < 8 ? z : t;
+            return (float)(((num1 & 1) != 0 ? -(double)num2 : (double)num2) + ((num1 & 2) != 0 ? -(double)num3 : (double)num3) + ((num1 & 4) != 0 ? -(double)num4 : (double)num4));
+        }
+    }
 }

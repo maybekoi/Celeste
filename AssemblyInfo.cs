@@ -3,7 +3,6 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 
-[assembly: Extension]
 [assembly: AssemblyTitle("Celeste")]
 [assembly: AssemblyProduct("Celeste")]
 [assembly: AssemblyDescription("")]
