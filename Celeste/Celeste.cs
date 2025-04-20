@@ -7,7 +7,7 @@
 using Celeste.Pico8;
 using Microsoft.Xna.Framework;
 using Monocle;
-using Steamworks;
+// using Steamworks; // STEAM SHIT!
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -34,7 +34,7 @@ namespace Celeste
       public AutoSplitterInfo AutoSplitterInfo = new AutoSplitterInfo();
       public static Coroutine SaveRoutine;
       public static Stopwatch LoadTimer;
-      public static readonly AppId_t SteamID = new AppId_t(504230U);
+      //public static readonly AppId_t SteamID = new AppId_t(504230U); // STEAM SHIT!
       private static int _mainThreadId;
 
       public static Vector2 TargetCenter => new Vector2(1920f, 1080f) / 2f;
@@ -90,7 +90,7 @@ namespace Celeste
 
       protected override void Update(GameTime gameTime)
       {
-        SteamAPI.RunCallbacks();
+        //SteamAPI.RunCallbacks(); // STEAM SHIT!
         if (Celeste.SaveRoutine != null)
           Celeste.SaveRoutine.Update();
         this.AutoSplitterInfo.Update();
@@ -138,6 +138,8 @@ namespace Celeste
         {
           Celeste._mainThreadId = Thread.CurrentThread.ManagedThreadId;
           Settings.Initialize();
+          // STEAM SHIT!
+          /*
           if (SteamAPI.RestartAppIfNecessary(Celeste.SteamID))
             return;
           if (!SteamAPI.Init())
@@ -148,6 +150,7 @@ namespace Celeste
           }
           if (!Settings.Existed)
             Settings.Instance.Language = SteamApps.GetCurrentGameLanguage();
+          */
           int num = Settings.Existed ? 1 : 0;
           for (int index = 0; index < args.Length - 1; ++index)
           {
