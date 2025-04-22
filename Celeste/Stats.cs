@@ -4,7 +4,7 @@
 // MVID: FAF6CA25-5C06-43EB-A08F-9CCF291FE6A3
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Celeste\Celeste.exe
 
-using Steamworks;
+//using Steamworks; // STEAM SHIT!
 using System.Collections.Generic;
 
 namespace Celeste
@@ -17,8 +17,9 @@ namespace Celeste
 
       public static void MakeRequest()
       {
-        Stats.ready = SteamUserStats.RequestCurrentStats();
-        SteamUserStats.RequestGlobalStats(0);
+       // Stats.ready = SteamUserStats.RequestCurrentStats();  // STEAM SHIT!
+       // SteamUserStats.RequestGlobalStats(0);  // STEAM SHIT!
+       Stats.ready = true;
       }
 
       public static bool Has() => Stats.ready;
@@ -31,12 +32,15 @@ namespace Celeste
         if (!Stats.statToString.TryGetValue(stat, out pchName))
           Stats.statToString.Add(stat, pchName = stat.ToString());
         int pData;
+            // STEAM SHIT!
+            /*
         if (!SteamUserStats.GetStat(pchName, out pData))
           return;
         SteamUserStats.SetStat(pchName, pData + increment);
-      }
+            */
+        }
 
-      public static int Local(Stat stat)
+        public static int Local(Stat stat)
       {
         int pData = 0;
         if (Stats.ready)
@@ -44,9 +48,9 @@ namespace Celeste
           string pchName = (string) null;
           if (!Stats.statToString.TryGetValue(stat, out pchName))
             Stats.statToString.Add(stat, pchName = stat.ToString());
-          SteamUserStats.GetStat(pchName, out pData);
-        }
-        return pData;
+                //SteamUserStats.GetStat(pchName, out pData);  // STEAM SHIT!
+            }
+            return pData;
       }
 
       public static long Global(Stat stat)
@@ -57,7 +61,7 @@ namespace Celeste
           string pchStatName = (string) null;
           if (!Stats.statToString.TryGetValue(stat, out pchStatName))
             Stats.statToString.Add(stat, pchStatName = stat.ToString());
-          SteamUserStats.GetGlobalStat(pchStatName, out pData);
+          //SteamUserStats.GetGlobalStat(pchStatName, out pData);  // STEAM SHIT!
         }
         return pData;
       }
@@ -66,7 +70,7 @@ namespace Celeste
       {
         if (!Stats.ready)
           return;
-        SteamUserStats.StoreStats();
+        //SteamUserStats.StoreStats();  // STEAM SHIT!
       }
 
       public static string Name(Stat stat) => Dialog.Clean("STAT_" + stat.ToString());
